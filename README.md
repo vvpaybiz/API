@@ -1,5 +1,5 @@
 # 目录
-## Bitake_demo文件夹 &nbsp; java/php 代码示例
+## VVPay_demo文件夹 &nbsp; java/php 代码示例
 ## 1 &nbsp; 接入规范
 #### 1.1 &nbsp; 接入规范
 ## 2 &nbsp; 常见全局错误码
