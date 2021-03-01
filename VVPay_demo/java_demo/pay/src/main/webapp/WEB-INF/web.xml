@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <display-name>VVPay</display-name>
+
+    <servlet>
+    <servlet-name>Recharge</servlet-name>
+    <servlet-class>com.test.pay.Recharge</servlet-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>utf-8</param-value>
+    </init-param>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>Recharge</servlet-name>
+        <url-pattern>/Recharge</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Callback</servlet-name>
+        <servlet-class>com.test.pay.Callback</servlet-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Callback</servlet-name>
+        <url-pattern>/Callback</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

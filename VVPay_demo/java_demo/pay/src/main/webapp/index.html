@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,maximum-scale=1,minimum-scale=1,initial-scale=1,user-scalable=0">
+    <meta http-equiv=X-UA-Compatible content="ie=edge">
+    <meta http-equiv=Window-target content=_top>
+    <meta itemprop=name content="">
+    <meta itemprop=image content=./static/logobx4@2x.png> <title>
+    </title>
+    <link rel="shortcut icon" href="./static/image/favicon.ico" type="image/x-icon">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+
+    #app {
+        padding: 5% 10%;
+        flex: 1;
+
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .font12 {
+        font-size: 12px;
+    }
+
+    .font14 {
+        font-size: 14px;
+    }
+
+    .logoImg {
+        width: 22%;
+        max-width: 90px;
+    }
+
+    .fontBold {
+        font-weight: bold;
+    }
+
+    header {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        align-items: center;
+    }
+
+    .fontBold:first-child {
+        margin-left: 10px;
+        line-height: 30px
+    }
+
+    /* .fontBold:first-child::after {
+        content: "";
+        padding: 2px 1.4px;
+        background-color: #000;
+
+    } */
+
+    .fontBold:nth-child(2) {
+        margin-left: 5px;
+    }
+
+    .color999 {
+        color: #9b9b9b
+    }
+
+    input[type='number'] {
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #dcdfe6;
+        box-sizing: border-box;
+        color: #606266;
+        height: 35px;
+        line-height: 40px;
+        outline: none;
+        padding: 0 5px;
+        transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    }
+
+    input[type='number']:focus {
+        border-color: red;
+    }
+
+    .btn {
+        min-width: 160px;
+        letter-spacing: .5px;
+        background: #6144cc;
+        color: #fff;
+        outline: none;
+        border: none;
+        padding: 10px;
+    }
+
+    .footerLogo {
+        width: 22%;
+        max-width: 90px;
+        vertical-align: text-bottom;
+    }
+
+    .contentCenter {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fixedBottom {
+        position: fixed;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+    }
+
+
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: space-around;
+    }
+
+    .tip {
+        color: #f56c6c;
+        font-size: 13px;
+        opacity: 0;
+
+    }
+
+    @media screen and (min-width: 800px) {
+        .container {
+            background-color: #f2f2f2;
+            width: 400px;
+            margin: 0 auto;
+            height: 700px;
+        }
+
+        footer {
+            background-color: #f2f2f2;
+
+        }
+
+        #app {
+            padding-top: 20px;
+
+        }
+
+        body {
+            background-color: #fff;
+            margin-top: 50px;
+        }
+
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <header class="flex">
+                <img src="./static/image/logo.png" class="logoImg">
+                <div>
+                    <!-- <span class="font12 fontBold">VVPay</span> -->
+                    <span class="font12 fontBold">Payment DEMO</span>
+                </div>
+            </header>
+            <main>
+                <div>
+                    <p class="font14">Create Acquire Order</p>
+                    <p class="color999 font12" style="margin-top: 20px;">Pay with cryptocurrency</p>
+                </div>
+                <form action="Recharge" onsubmit="return submitMe()">
+                    <span class="font14">Amount</span>
+                    <input type="number" name="p1"  placeholder="Please enter the amount" style="width:177px;border-color: #333 ">
+
+                   <span style="color: red;">*</span>
+                    <span class="font14">USDT</span>
+
+                   <div style="margin-top: 20px">
+                       <span> Fiat</span>
+
+                       <select name="p4" style="width: 150px;height:30px;margin-left:27px;border-radius: 5px ">
+                           <option value ="CNY">CNY</option>
+                           <option value ="VND">VND</option>
+                           <option value ="USD">USD</option>
+
+                       </select>
+                   </div>
+
+
+                <p class="tip font12">Please enter the amount</p>
+                <input type="submit" value="Create Acquire Order" class="btn"/>
+            </form>
+                <div class="font14" style="margin-top: 20px;">
+                    Tips: Do not pay after opening the cashier, the payment will not be refunded.
+                </div>
+            </main>
+        </div>
+        <footer class="">
+            <div class="flex contentCenter">
+                <img src="./static/image/logo.png" class="footerLogo">
+                <span class="font14" style="margin-left: 10px;">VVPay</span>
+            </div>
+            <p class="color999 font12 flex contentCenter">
+                Copyright © 2020 VVPay. All Rights Reserved.
+            </p>
+        </footer>
+    </div>
+</body>
+<script>
+    var inputEle = document.getElementsByTagName("input")[0];
+    var tips = document.getElementsByClassName("tip")[0];
+    let a;
+    inputEle.addEventListener("input", function (e) {
+        a = e.target.value
+    })
+    inputEle.addEventListener("blur", function () {
+        if (a) {
+            tips.style.opacity = '0'
+        } else {
+            tips.style.opacity = '1'
+        }
+    })
+
+
+
+    function submitMe () {
+        if(a==undefined){
+            alert('Please enter the amount')
+            return false
+        }else  {
+            return true
+        }
+
+    }
+</script>
+
+</html>
